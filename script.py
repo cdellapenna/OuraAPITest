@@ -7,14 +7,12 @@ API_KEY = os.environ.get('API_KEY')
 
 BASE_URL = 'https://api.ouraring.com/v1/'
 
-# Set up headers with your API key
 HEADERS = {
     'Authorization': f'Bearer {API_KEY}',
     'Content-Type': 'application/json'
 }
 
 def get_sleep_data(start_date=None, end_date=None):
-    """Fetch sleep data from Oura API."""
     url = BASE_URL + 'sleep'
     params = {}
     if start_date:
@@ -26,7 +24,6 @@ def get_sleep_data(start_date=None, end_date=None):
     return response.json()
 
 def get_activity_data(start_date=None, end_date=None):
-    """Fetch activity data from Oura API."""
     url = BASE_URL + 'activity'
     params = {}
     if start_date:
