@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 load_dotenv()
 API_KEY = os.environ.get('API_KEY')
 
-BASE_URL = 'https://api.ouraring.com/v1/'
+BASE_URL = 'https://api.ouraring.com/v2/usercollection/'
 
 HEADERS = {
     'Authorization': f'Bearer {API_KEY}',
@@ -13,7 +13,7 @@ HEADERS = {
 }
 
 def get_sleep_data(start_date=None, end_date=None):
-    url = BASE_URL + 'sleep'
+    url = BASE_URL + 'daily_sleep'
     params = {}
     if start_date:
         params['start'] = start_date
@@ -24,7 +24,7 @@ def get_sleep_data(start_date=None, end_date=None):
     return response.json()
 
 def get_activity_data(start_date=None, end_date=None):
-    url = BASE_URL + 'activity'
+    url = BASE_URL + 'daily_activity'
     params = {}
     if start_date:
         params['start'] = start_date
